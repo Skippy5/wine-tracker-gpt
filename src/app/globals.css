@@ -1,26 +1,164 @@
 @import "tailwindcss";
 
-:root {
-  --background: #ffffff;
-  --foreground: #171717;
-}
-
 @theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-wine-50: #fbf5f7;
+  --color-wine-100: #f5e6eb;
+  --color-wine-200: #ebcdd8;
+  --color-wine-300: #dda9bb;
+  --color-wine-400: #c97694;
+  --color-wine-500: #ae4e73;
+  --color-wine-600: #913454;
+  --color-wine-700: #782541;
+  --color-wine-800: #5d1835;
+  --color-wine-900: #481329;
+  --color-wine-950: #2d0a1a;
+
+  --color-cream-50: #fffaf5;
+  --color-cream-100: #fcf4eb;
+  --color-cream-200: #f4e8da;
+
+  --color-apricot-100: #f8e9d1;
+  --color-apricot-200: #f2d7ae;
+  --color-apricot-800: #815021;
+  --color-apricot-900: #583215;
+
+  --color-sage-100: #e6eee4;
+  --color-sage-200: #cfdfcc;
+  --color-sage-300: #b7d3b1;
+  --color-sage-800: #3e6440;
+  --color-sage-900: #28452d;
+
+  --color-rose-50: #fff2f3;
+  --color-rose-100: #f8dfe2;
+  --color-rose-200: #efc5c9;
+
+  --font-sans: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+  --font-display: "Iowan Old Style", "Palatino Linotype", "Book Antiqua", Palatino, Georgia, serif;
+  --font-mono: ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, monospace;
+  --shadow-card: 0 12px 30px rgba(73, 38, 42, 0.07), 0 2px 8px rgba(73, 38, 42, 0.04);
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+:root {
+  color-scheme: light;
+  background: #fffaf5;
+  font-synthesis: none;
+  text-rendering: optimizeLegibility;
+  -webkit-text-size-adjust: 100%;
+}
+
+* {
+  box-sizing: border-box;
+}
+
+html {
+  min-width: 320px;
+  background: #fffaf5;
+  scroll-behavior: smooth;
 }
 
 body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+  min-width: 320px;
+  background:
+    radial-gradient(circle at 100% 0%, rgba(221, 169, 187, 0.14), transparent 28rem),
+    radial-gradient(circle at 0% 70%, rgba(242, 215, 174, 0.14), transparent 30rem),
+    #fffaf5;
+  color: #2d0a1a;
+  font-family: -apple-system, BlinkMacSystemFont, "SF Pro Text", "Segoe UI", sans-serif;
+  -webkit-tap-highlight-color: transparent;
+}
+
+button,
+input,
+select,
+textarea {
+  font: inherit;
+}
+
+button,
+a,
+select,
+input[type="date"] {
+  touch-action: manipulation;
+}
+
+button {
+  cursor: pointer;
+}
+
+input,
+select,
+textarea {
+  font-size: 16px;
+}
+
+input[type="date"] {
+  min-height: 48px;
+}
+
+input[type="date"]::-webkit-date-and-time-value {
+  min-height: 1.5em;
+  text-align: left;
+}
+
+::selection {
+  background: #ebcdd8;
+  color: #2d0a1a;
+}
+
+:focus-visible {
+  outline: 3px solid rgba(174, 78, 115, 0.35);
+  outline-offset: 3px;
+}
+
+.section-kicker {
+  @apply mb-1 text-[0.65rem] font-extrabold uppercase tracking-[0.2em] text-wine-600;
+}
+
+.section-title {
+  @apply font-display text-[1.65rem] font-semibold leading-none tracking-[-0.035em] text-wine-950;
+}
+
+.page-title {
+  @apply font-display text-[2.3rem] font-semibold leading-none tracking-[-0.045em] text-wine-950 sm:text-[2.7rem];
+}
+
+.sheet-enter {
+  animation: sheet-enter 220ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+.toast-enter {
+  animation: toast-enter 260ms cubic-bezier(0.16, 1, 0.3, 1) both;
+}
+
+@keyframes sheet-enter {
+  from {
+    opacity: 0;
+    transform: translateY(24px) scale(0.985);
+  }
+  to {
+    opacity: 1;
+    transform: translateY(0) scale(1);
+  }
+}
+
+@keyframes toast-enter {
+  from {
+    opacity: 0;
+    transform: translate(-50%, -12px) scale(0.96);
+  }
+  to {
+    opacity: 1;
+    transform: translate(-50%, 0) scale(1);
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    scroll-behavior: auto !important;
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+  }
 }
